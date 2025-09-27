@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator & Strength Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator & Strength Checker</h1>
+        
+        <!-- Password Validation Section -->
+        <div class="section">
+            <h2>Password Strength Checker</h2>
+            <div class="input-group">
+                <input type="password" id="passwordInput" placeholder="Enter password to check strength">
+                <button onclick="checkStrength()">Check Strength</button>
+            </div>
+            <div id="strengthResult" class="strength-result"></div>
+        </div>
+
+        <!-- Password Generation Section -->
+        <div class="section">
+            <h2>Password Generator</h2>
+            
+            <div class="options">
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="uppercase" checked> Uppercase (A-Z)</label>
+                    <label><input type="checkbox" id="lowercase" checked> Lowercase (a-z)</label>
+                    <label><input type="checkbox" id="numbers" checked> Numbers (0-9)</label>
+                    <label><input type="checkbox" id="symbols"> Symbols (!@#$%^&*)</label>
+                </div>
+                
+                <div class="length-control">
+                    <label for="lengthSlider">Password Length: <span id="lengthValue">12</span></label>
+                    <input type="range" id="lengthSlider" min="4" max="30" value="12" oninput="updateLength()">
+                </div>
+            </div>
+            
+            <button onclick="generatePassword()">Generate Password</button>
+            <div class="generated-password">
+                <input type="text" id="generatedPassword" readonly placeholder="Generated password will appear here">
+                <button onclick="copyPassword()">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
